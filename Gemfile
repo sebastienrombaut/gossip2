@@ -2,7 +2,7 @@ source 'https://rubygems.org'
 
 # authentification
 gem 'devise'
-gem 'pundit'
+#gem 'pundit'
 
 gem 'rails'
 gem 'puma'
