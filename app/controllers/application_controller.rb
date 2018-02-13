@@ -1,5 +1,5 @@
 class ApplicationController < ActionController::Base
-#  before_action :authenticate_moussaillon! #pour bloquer les pages si tu n'es pas logé 
+  
   protect_from_forgery with: :exception
   before_action :sanitize_devise_params, if: :devise_controller?
 
