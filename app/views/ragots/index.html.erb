@@ -1,0 +1,26 @@
+<div align="center">
+<h1>Index de tous nos Ragots !! :)</h1>
+
+	<table class="table table-striped">
+  	<tr>
+  	  <th scope="col" style="text-align: center">ID du Ragot  </th>
+   	  <th scope="col" style="text-align: center">Contenu  </th>
+   	  <th scope="col" style="text-align: center">Auteur  </th>
+      <th scope="col" style="text-align: center">Date de création  </th>
+      <th scope="col" style="text-align: center">Action  </th>
+   
+  	</tr>
+ 
+  	<% @ragots.each do |ragot| %>
+  
+    <tr>
+	  <td style="text-align: center"><%= ragot.id %></td>
+      <td style="text-align: center"><%= ragot.content %></td>
+      <td style="text-align: center"><%= ragot.moussaillon.username %></td>
+      <td style="text-align: center"><%= ragot.created_at %></td>
+      <td style="text-align: center"> <%= link_to "Voir le ragot", ragot_path(ragot), class: "btn btn-info" %></td>
+    </tr>
+    <% end %>
+    </table>
+</br>
+</div>

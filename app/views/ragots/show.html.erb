@@ -1,0 +1,13 @@
+<div align = "center">
+<h1>Ragots n°<%= @ragot.id%></h1>
+
+<h2>Voici le contenu <%= @ragot.content%>, écrit par : <%= @ragot.moussaillon.username%></h2> 
+
+<% if @ragot.moussaillon_id == current_moussaillon.id%>
+<%= link_to "Editer le ragot", edit_ragot_path(@ragot), class: "btn btn-info" %>
+<%= link_to "Supprimer le ragot", ragot_path(@ragot), method: :delete, data: { confirm: 'tu es sûr?' }, class: "btn btn-danger" %>
+<% end%>
+
+
+</div>
+

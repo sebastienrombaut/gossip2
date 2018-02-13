@@ -1,0 +1,34 @@
+<div align="center">
+
+<h1>On crée un ragot ici 🙂</h1><br>
+
+<% if moussaillon_signed_in? %>
+	<%= form_for @ragot, url: {action: "create"}, html: {class: "nifty_form"} do |f| %>
+	  <%= label_tag 'Contenu de ton ragot :' %>
+	  <%= f.text_field :content, size: "50x2" %>
+
+	  <%= f.submit "Crée ton gros ragot" %>
+
+	  <% if @ragot.errors.any? %>
+	    <div id="error_explanation">
+	      <h2>
+	        <%= pluralize(@ragot.errors.count, "error") %> prohibited
+	        this ragot from being saved:
+	      </h2>
+	      <ul>
+	        <% @ragot.errors.full_messages.each do |msg| %>
+	          <li><%= msg %></li>
+	        <% end %>
+	      </ul>
+	    </div>
+	  <% end %>
+<% end %>
+
+<% else %>
+	<p>Connecte toi pour créer un ragot !!</p>
+	<%= link_to "Login", new_moussaillon_session_path, class: "btn btn-info" %>
+
+
+
+<% end %>
+</div>

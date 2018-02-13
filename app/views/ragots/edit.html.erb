@@ -1,0 +1,22 @@
+<h1>Edite ton ragot ici !</h1>
+
+<%= form_for @ragot, url: {action: "update"}, html: {class: "nifty_form"} do |f| %>
+  <%= label_tag 'Contenu :' %>
+  <%= f.text_field :content, size: "50x2" %>
+  <%= f.submit "Edit !" %>
+
+  <% if @ragot.errors.any? %>
+    <div id="error_explanation">
+      <h2>
+        <%= pluralize(@ragot.errors.count, "error") %> prohibited
+        this ragot from being saved:
+      </h2>
+      <ul>
+        <% @ragot.errors.full_messages.each do |msg| %>
+          <li><%= msg %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+<% end %>
