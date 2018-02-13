@@ -1,5 +1,5 @@
 class ApplicationController < ActionController::Base
-  before_action :authenticate_moussaillon! #pour bloquer les pages si tu n'es pas logé 
+#  before_action :authenticate_moussaillon! #pour bloquer les pages si tu n'es pas logé 
   protect_from_forgery with: :exception
   before_action :sanitize_devise_params, if: :devise_controller?
 
@@ -9,8 +9,10 @@ class ApplicationController < ActionController::Base
     devise_parameter_sanitizer.permit(:sign_up, keys: [:username, :sign_up_code])
  
   end
-
+=begin
   def after_sign_in_path_for(resource)
-    ragots_path
+    root_path
   end
+=end
+  
 end
