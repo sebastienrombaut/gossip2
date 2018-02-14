@@ -10,14 +10,7 @@ class StaticPagesControllerTest < ActionDispatch::IntegrationTest
         
     end
 
-    test "should display index page if logged in" do
-        @moussaillon.save
-        get new_moussaillon_session_path
-        post new_moussaillon_session_path, params: { session: { email: "user@example.com", password: "foobar" }}
-        assert is_logged_in?
-        #get ragots_path
-        #assert_response :success
-    end
+    
 
 =begin
 	test "should subscribe user with the right code" do
