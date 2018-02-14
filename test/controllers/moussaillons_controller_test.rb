@@ -27,6 +27,23 @@ class MoussaillonsControllerTest < ActionDispatch::IntegrationTest
 	    assert_template 'layouts/application'
 
 	    end
+
+	test "can't sign up without the special code" do
+        get new_moussaillon_registration_path
+    	post moussaillon_registration_path, params: { moussaillon: { username: "jasonsanscode", email: "jason@sanscode.com", password: "foobar", password_confirmation: "foobar" }}
+
+    	assert_select 'td.content', {:count=>0}
+  		end
+
+  	test "can sign up without the special code" do
+        @user = Moussaillon.create(username: "Test", email: "test@hotmail.fr", password: "foobar", password_confirmation: "foobar", sign_up_code: "bro")
+        get new_moussaillon_registration_path
+    	post moussaillon_registration_path, params: { moussaillon: { username: "Test", email: "test@hotmail.fr", password: "foobar", password_confirmation: "foobar", sign_up_code: "bro" }}
+
+    	sign_in @user
+    	get ragots_path
+    	assert_select "h1", text: "Index de tous nos Ragots !! :)"
+  		end
 	    
 
 
