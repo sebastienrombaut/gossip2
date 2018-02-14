@@ -32,7 +32,7 @@ class MoussaillonsControllerTest < ActionDispatch::IntegrationTest
         get new_moussaillon_registration_path
     	post moussaillon_registration_path, params: { moussaillon: { username: "jasonsanscode", email: "jason@sanscode.com", password: "foobar", password_confirmation: "foobar" }}
 
-    	assert_select 'td.content', {:count=>0}
+    	assert_select 'h1.content', {:count=>0}
   		end
 
   	test "can sign up without the special code" do
